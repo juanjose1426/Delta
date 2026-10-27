@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubai Parfums | Colección Completa</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navegación -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-main">DUBAI</span>
+                <span class="logo-sub">PARFUMS</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#inicio">Inicio</a>
+                <a href="#catalogo">Catálogo Completo</a>
+                <a href="#experiencia">La Esencia</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#test-perfume">Encuentra tu perfume</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="account-btn" id="accountBtn" type="button"><i class="fa-regular fa-user"></i> <span id="accountLabel">Ingresar</span></button>
+                <button class="cart-btn" id="cartBtn" aria-label="Carrito de compras">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">Exclusividad y Opulencia</span>
+            <h1>Catálogo General de Perfumería</h1>
+            <p>La selección más completa de fragancias exclusivas organizadas para ti.</p>
+            <div class="hero-buttons">
+                <a href="#catalogo" class="btn btn-primary">Ver Catálogo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Catálogo / Productos -->
+    <section class="catalog-section" id="catalogo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Inventario Completo</h2>
+                <p>Todas las referencias disponibles</p>
+            </div>
+
+            <!-- Grid de Productos: Los 650 perfumes con imagen personalizada -->
+            <div class="products-grid" id="productsGrid">
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="quiz-section" id="test-perfume">
+      <div class="container">
+        <div class="section-title"><h2>Encuentra tu esencia</h2><p>Responde unas preguntas y descubre fragancias de acuerdo con tus gustos.</p></div>
+        <form id="quizForm" class="quiz-form">
+          <label>Ciudad<input name="city" placeholder="Ej. Bogotá" required></label>
+          <label>Clima habitual<select name="weather"><option value="caluroso">Caluroso</option><option value="templado" selected>Templado</option><option value="frio">Frío</option><option value="humedo">Húmedo o variable</option></select></label>
+          <label>Familia olfativa<select name="family"><option value="fresco">Fresco y cítrico</option><option value="dulce">Dulce y avainillado</option><option value="amaderado">Amaderado y especiado</option><option value="floral">Floral</option><option value="ambar">Ámbar y oriental</option></select></label>
+          <label>Ocasión<select name="occasion"><option>Uso diario</option><option>Citas</option><option>Fiestas</option><option>Eventos especiales</option></select></label>
+          <label>Presupuesto máximo (COP)<input name="budget" type="number" min="0" step="1000" value="200000" required></label>
+          <button class="btn btn-primary" type="submit">Recomendar perfumes</button>
+        </form>
+        <div id="quizResults" class="quiz-results" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <span class="footer-logo">DUBAI PARFUMS</span>
+                <p>Llevando la alta perfumería directo a tus sentidos.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto y Pedidos</h4>
+                <p><i class="fa-solid fa-phone"></i> +57 322 782 3678</p>
+                <p><i class="fa-solid fa-envelope"></i> contacto@dubaiparfums.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Dubai Parfums. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Carrito Lateral -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Tu Carrito de Compras</h3>
+            <button class="close-cart" id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <p class="empty-cart-msg">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalSum">$0 COP</span>
+            </div>
+            <button class="btn btn-primary btn-checkout" onclick="finalizarPedidoWhatsApp()">Ordenar por WhatsApp</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <div class="modal-backdrop" id="authModal" hidden>
+      <section class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <button type="button" class="modal-close" id="closeAuth" aria-label="Cerrar">×</button>
+        <h2 id="authTitle">Dubai Parfums</h2><p>Ingresa o crea tu cuenta</p>
+        <form id="authForm">
+          <label id="nameField" hidden>Nombre completo<input name="fullName" autocomplete="name"></label>
+          <label>Correo electrónico<input name="email" type="email" autocomplete="email" required></label>
+          <label>Contraseña<input name="password" type="password" minlength="8" autocomplete="current-password" required></label>
+          <button class="btn btn-primary" id="authSubmit" type="submit">Iniciar sesión</button>
+        </form>
+        <button class="auth-switch" id="authSwitch" type="button">¿No tienes cuenta? Regístrate</button>
+        <p id="authMessage" role="status"></p>
+      </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
